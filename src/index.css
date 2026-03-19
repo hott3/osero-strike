@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  --animate-stone-flip: stone-flip 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  --animate-pass-blink: pass-blink 1.5s ease-in-out infinite;
+
+  @keyframes stone-flip {
+    0% { transform: scale(1) rotateY(0deg); opacity: 0.8; }
+    50% { transform: scale(1.1) rotateY(90deg); opacity: 1; }
+    100% { transform: scale(1) rotateY(180deg); opacity: 1; }
+  }
+
+  @keyframes pass-blink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(0.98); }
+  }
+}
+
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0f172a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+

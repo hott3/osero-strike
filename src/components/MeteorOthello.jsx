@@ -186,7 +186,19 @@ const MeteorOthello = () => {
         <h1 className="text-5xl font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400 drop-shadow-sm">
           隕石オセロ
         </h1>
-        <p className="text-xl text-emerald-200/80">隕石(🪨)を避けて石を置こう！</p>
+        <div className="text-xl text-emerald-200/80 flex items-center justify-center gap-2">
+          <span>隕石</span>
+          <div className="w-6 h-6 rounded-full bg-gradient-to-br from-slate-500 to-slate-800 shadow-lg ring-1 ring-white/20 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3/5 h-3/5 text-slate-300">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M8 8h.01" />
+              <path d="M16 11h.01" />
+              <path d="M10 15h.01" />
+              <path d="M15 17h.01" />
+            </svg>
+          </div>
+          <span>を避けて石を置こう！</span>
+        </div>
       </header>
 
       <div className="w-full max-w-md bg-slate-800/50 backdrop-blur-xl rounded-3xl p-6 shadow-2xl border border-white/10">
@@ -251,8 +263,14 @@ const MeteorOthello = () => {
                     <div className="w-4/5 h-4/5 rounded-full bg-gradient-to-br from-white to-gray-300 shadow-md ring-1 ring-black/10 animate-stone-flip" />
                   )}
                   {cell === METEOR && (
-                    <div className="w-full h-full flex items-center justify-center text-xl bg-slate-700/50 rounded-[4px]">
-                      🪨
+                    <div className="w-4/5 h-4/5 flex items-center justify-center rounded-full bg-gradient-to-br from-slate-600 to-slate-900 shadow-lg ring-1 ring-white/20">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-3/5 h-3/5 text-slate-300">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 8h.01" />
+                        <path d="M16 11h.01" />
+                        <path d="M10 15h.01" />
+                        <path d="M15 17h.01" />
+                      </svg>
                     </div>
                   )}
                 </div>

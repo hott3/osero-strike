@@ -1,16 +1,48 @@
-# React + Vite
+# 隕石オセロ (Meteor Othello)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+隕石オセロは、通常のオセロに「隕石（障害物）」という要素を加えた、戦略的なボードゲームです。React 19 と Vite を使用して構築されています。
 
-Currently, two official plugins are available:
+## ゲーム概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+盤面上にランダムに配置された「隕石」を避けながら、通常のオセロと同様に石を置いていきます。隕石がある場所には石を置くことができず、また隕石を飛び越えて石を裏返すこともできません。
 
-## React Compiler
+### 主な特徴
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **隕石（障害物）**: ゲーム開始時に盤面上にランダムに隕石が配置されます。隕石は点対称および軸対称に配置されるため、公平性が保たれています。
+- **標準的なオセロルール**: 隣接する相手の石を自分の石で挟むことで裏返します。
+- **スコア管理**: 黒と白の石の数をリアルタイムで表示します。
+- **パス機能**: 置ける場所がない場合は自動的にパスされ、相手のターンになります。
+- **ゲーム終了判定**: 両者ともに置ける場所がなくなった時点でゲーム終了となり、勝敗が表示されます。
 
-## Expanding the ESLint configuration
+## 技術スタック
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React 19 (Hooks: useState, useEffect, useCallback)
+- **Build Tool**: Vite 8
+- **Styling**: Tailwind CSS 4
+- **Linting**: ESLint
+
+## セットアップと実行
+
+### 依存関係のインストール
+
+```bash
+npm install
+```
+
+### 開発サーバーの起動
+
+```bash
+npm run dev
+```
+
+### ビルド
+
+```bash
+npm run build
+```
+
+### リンターの実行
+
+```bash
+npm run lint
+```

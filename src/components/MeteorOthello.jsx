@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import ConfirmModal from './ConfirmModal';
 
 // 定数定義
 const BOARD_SIZE = 8;
@@ -22,6 +23,7 @@ const MeteorOthello = () => {
   const [validMoves, setValidMoves] = useState([]);
   const [passMessage, setPassMessage] = useState('');
   const [lastPlaced, setLastPlaced] = useState(null);
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
 
   // 指定したマスに石が置けるかチェックし、裏返せるマスのリストを返す
   const getFlipList = useCallback((currentBoard, row, col, player) => {
@@ -282,13 +284,27 @@ const MeteorOthello = () => {
         {/* Controls */}
         <div className="mt-8 flex justify-center">
           <button
-            onClick={initializeGame}
-            className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold rounded-2xl shadow-lg transition-all active:scale-95 ring-2 ring-white/10"
+            onClick={() => setIsConfirmModalOpen(true)}
+            className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-bold rounded-2xl shadow-lg transition-all active:scale-95 ring-2 ring-white/10 cursor-pointer"
           >
             最初からやり直す
           </button>
         </div>
       </div>
+
+      {/* Reset Confirmation Modal */}
+      <ConfirmModal
+        isOpen={isConfirmModalOpen}
+        title="ゲームのリセット"
+        message="本当に最初からやり直しますか？現在の対局データは破棄されます。"
+        confirmText="やり直す"
+        cancelText="キャンセル"
+        onConfirm={() => {
+          initializeGame();
+          setIsConfirmModalOpen(false);
+        }}
+        onCancel={() => setIsConfirmModalOpen(false)}
+      />
     </div>
   );
 };
